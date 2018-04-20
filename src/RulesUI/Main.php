@@ -23,7 +23,7 @@ class Main extends PluginBase implements Listener {
 	
     public function onCommand(CommandSender $sender, Command $cmd, string $label,array $args) : bool {
 		switch($cmd->getName()){
-			case "rulesui":
+			case "rules":
 				if($sender instanceof Player) {
 					$api = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
 					$form = $api->createSimpleForm(function (Player $sender, array $data){
@@ -36,9 +36,11 @@ class Main extends PluginBase implements Listener {
 						   
 						}
 					});
-					$form->setTitle("RebirthPE RulesUI Screen");
+					$form->setTitle("-=Rules=-");
 					$form->setContent("Please follow the rules.");
-					$form->adddropdown(TextFormat::BOLD . "Please respect staff and dont hack");	
+					$form->addLabel(TextFormat::BOLD . "Please respect staff and dont hack");
+					$form->addLabel(TextFormat::BOLD . "");
+					$form->addLabel(TextFormat::BOLD . "");
 					$form->sendToPlayer($sender);
 				}
 				else{
